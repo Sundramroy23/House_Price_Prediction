@@ -108,6 +108,7 @@ The Flask application consists of the following components:
 
 - **Prediction Route**:
   - Users enter property details, and the application returns the predicted price.
+  - User can only access the prediction feature after login (session handling)
 
 
 ## Deployment
