@@ -1,8 +1,7 @@
-Flask==2.3.2
-Flask-WTF==1.1.1
-WTForms==3.0.1
-Flask-SQLAlchemy==3.0.5
-bcrypt==4.0.1
-pandas==2.0.3
-numpy==1.25.0
-
+Flask
+Flask-WTF
+WTForms
+Flask-SQLAlchemy
+bcrypt
+pandas
+numpy
