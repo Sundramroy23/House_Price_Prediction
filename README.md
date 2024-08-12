@@ -45,39 +45,14 @@ This web application allows users to predict the price of a property by entering
 - **pandas, numpy**: Data manipulation and analysis.
 - **HTML, CSS, Bootstrap**: Frontend design and styling.
 
-## Setup Instructions
+## User Authetication
+<p align="center">
+  <img src="screenshots/login.png" alt="Prediction Page">
+</p>
+<p align="center">
+  <img src="screenshots/register.png" alt="Prediction Page">
+</p>
 
-To run this project locally:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/real-estate-price-prediction.git
-   cd real-estate-price-prediction
-   ```
-
-2. **Create a virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-
-3. **Install the dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Set up the database**:
-   ```bash
-   flask db init
-   flask db migrate
-   flask db upgrade
-   ```
-
-5. **Run the application**:
-   ```bash
-   flask run
-   ```
-   The application will be available at `http://127.0.0.1:5000/`.
 
 ## Dataset
 
