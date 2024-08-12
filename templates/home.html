@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Mumbai House Pricing{% endblock %}
+
+{% block extra_css%}
+
+<style>
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+      margin: 0 10px;
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 20px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: #007bff;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+    
+    #saleLabel {
+      color: #007bff;
+    }
+    
+    input:checked ~ #saleLabel {
+      color: #ccc;
+    }
+    
+    input:not(:checked) ~ #resaleLabel {
+      color: #ccc;
+    }
+    
+    input:checked ~ #resaleLabel {
+      color: #007bff;
+    }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-5">Find Your Ideal Home in Mumbai</h1>
+<p class="text-center">Estimate the price of your dream house in Mumbai with our easy-to-use tool.</p>
+
+<div class="row justify-content-center">
+    <div class="card p-4 col-md-8">
+        <form id="predictionForm" accept-charset="UTF-8">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="location"><b>Location</b></label>
+                    <select class="form-control" id="location" name="location" required>
+                        {% for location in locations %}
+                        <option value="{{ location }}">{{ location }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="area"><b>Area (in Sq/Ft)</b></label>
+                    <input type="number" class="form-control" id="area" name="area" placeholder="Enter Area" required min="100">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="bhk"><b>No. of BHK</b></label>
+                    <input type="number" class="form-control" id="bhk" name="bhk" placeholder="Enter number of rooms" required min="1">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label><b>Property Type</b></label><br>
+                    <div class="d-flex align-items-center">
+                        <span id="saleLabel" class="mr-2">Sale</span>
+                        <label class="switch">
+                            <input type="checkbox" id="propertyType" name="propertyType">
+                            <span class="slider round"></span>
+                        </label>
+                        <span id="resaleLabel" class="ml-2">Resale</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label class="switch">
+                        <input type="checkbox" id="gym" name="gym">
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="gym" class="ml-2">Gymnasium</label>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="switch">
+                        <input type="checkbox" id="ind" name="ind">
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="ind" class="ml-2">Indoor Games</label>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="switch">
+                        <input type="checkbox" id="swim" name="swim">
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="swim" class="ml-2">Swimming Pool</label>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="switch">
+                        <input type="checkbox" id="club" name="club">
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="club" class="ml-2">Clubhouse</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" onclick="send_data()">Predict Price</button>
+        </form>
+        <div class="mt-4 text-center">
+            <h3><span id="prediction"></span></h3>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function send_data(event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        var area = document.getElementById('area').value;
+        if (area < 100) {
+            document.getElementById('prediction').innerHTML = "Error: Area must be at least 100 Sq/Ft.";
+            return;
+        }
+
+        // Create a new FormData object from the form
+        var form = document.getElementById('predictionForm');
+        var fd = new FormData(form);
+
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/predict', true);
+
+        // Update the user interface while waiting for the response
+        document.getElementById("prediction").innerHTML = "Wait, Predicting Price...!";
+
+        // Set up a function to handle the response
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Handle successful response
+                    document.getElementById('prediction').innerHTML = "Estimated Price is: ₹ " + xhr.responseText;
+                } else {
+                    // Handle errors
+                    document.getElementById('prediction').innerHTML = "An error occurred while predicting the price. Please try again.";
+                }
+            }
+        };
+
+        // Send the request with the form data
+        xhr.send(fd);
+    }
+
+    // Attach the send_data function to the form's submit event
+    document.getElementById('predictionForm').addEventListener('submit', send_data);
+</script>
+
+{% endblock %}
