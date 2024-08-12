@@ -102,25 +102,13 @@ The Flask application consists of the following components:
 - **User Authentication**:
   - Users can register, log in, and access the prediction features.
   - Passwords are hashed using bcrypt.
+    <p align="center">
+    <img src="screenshots/backend.png" alt="Prediction Page">
+    </p>
 
 - **Prediction Route**:
   - Users enter property details, and the application returns the predicted price.
 
-- **Data Visualization**:
-  - Visualizations are included to show data distribution and feature correlations.
-
-## Screenshots
-
-*Include screenshots of your application here.*
-
-- **Home Page**:
-  ![Home Page](screenshots/home_page.png)
-
-- **Login Page**:
-  ![Login Page](screenshots/login_page.png)
-
-- **Prediction Page**:
-  ![Prediction Page](screenshots/prediction_page.png)
 
 ## Deployment
 
