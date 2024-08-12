@@ -1,11 +1,9 @@
 
----
-
 # Real Estate Price Prediction Web Application
 <p align="center">
   <img src="screenshots/predict2.png" alt="Prediction Page">
+  <br><b>Prediction Page</b>
 </p>
-
 
 This project is a Flask web application that predicts real estate prices based on various input features like location, area, number of bedrooms, and several amenities. The application uses a machine learning model to make predictions, and the model is trained using a dataset of real estate properties.
 
@@ -18,9 +16,7 @@ This project is a Flask web application that predicts real estate prices based o
 - [Dataset](#dataset)
 - [Machine Learning Model](#machine-learning-model)
 - [Flask Application](#flask-application)
-- [Screenshots](#screenshots)
 - [Deployment](#deployment)
-- [License](#license)
 - [Acknowledgements](#acknowledgements)
 
 ## Overview
@@ -45,14 +41,15 @@ This web application allows users to predict the price of a property by entering
 - **pandas, numpy**: Data manipulation and analysis.
 - **HTML, CSS, Bootstrap**: Frontend design and styling.
 
-## User Authetication
+## User Authentication
 <p align="center">
-  <img src="screenshots/login.png" alt="Prediction Page">
+  <img src="screenshots/login.png" alt="User Login">
+  <br><b>User Login</b>
 </p>
 <p align="center">
-  <img src="screenshots/register.png" alt="Prediction Page">
+  <img src="screenshots/register.png" alt="User Registration">
+  <br><b>User Registration</b>
 </p>
-
 
 ## Dataset
 
@@ -75,10 +72,12 @@ The machine learning model was trained using the following steps:
    - Encoded categorical variables.
    - Removed outliers.
      <p align="center">
-    <img src="screenshots/plot1.png" alt="Prediction Page">Outlier Visualization
+      <img src="screenshots/plot1.png" alt="Outlier Visualization">
+      <br><b>Outlier Visualization</b>
     </p>
     <p align="center">
-    <img src="screenshots/plot2.png" alt="Prediction Page">Categorical Analysis
+      <img src="screenshots/plot2.png" alt="Categorical Analysis">
+      <br><b>Categorical Analysis</b>
     </p>
 
 2. **Feature Engineering**:
@@ -88,7 +87,8 @@ The machine learning model was trained using the following steps:
    - Trained various models including Linear Regression, Polynomial Regression, SVR, Decision Tree, Random Forest, Gradient Boosting, and KNN.
    - Evaluated models using metrics like R2 score, Mean Absolute Error (MAE), and Mean Squared Error (MSE).
     <p align="center">
-    <img src="screenshots/accuracy.png" alt="Prediction Page">
+      <img src="screenshots/accuracy.png" alt="Model Accuracy Comparison">
+      <br><b>Model Accuracy Comparison</b>
     </p>
 
 4. **Model Saving**:
@@ -106,12 +106,13 @@ The Flask application consists of the following components:
   - Users can register, log in, and access the prediction features.
   - Passwords are hashed using bcrypt.
     <p align="center">
-    <img src="screenshots/backend.png" alt="Prediction Page">
+      <img src="screenshots/backend.png" alt="Database Implementation and Password Hashing">
+      <br><b>Database Implementation and Password Hashing</b>
     </p>
 
 - **Prediction Route**:
   - Users enter property details, and the application returns the predicted price.
-  - User can only access the prediction feature after login (session handling)
+  - User can only access the prediction feature after login (session handling).
 
 
 ## Deployment
@@ -125,11 +126,9 @@ To deploy on PythonAnywhere:
 3. **Configure WSGI**: Point the WSGI file to your Flask application.
 4. **Reload the web app**: Reload the web app to apply changes.
 
-
 ## Acknowledgements
 
 - [Flask Documentation](https://flask.palletsprojects.com/)
 - [scikit-learn Documentation](https://scikit-learn.org/)
 - [Bootstrap](https://getbootstrap.com/)
 - [PythonAnywhere](https://www.pythonanywhere.com/)
-
