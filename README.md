@@ -74,8 +74,11 @@ The machine learning model was trained using the following steps:
    - Handled missing values.
    - Encoded categorical variables.
    - Removed outliers.
+     <p align="center">
+    <img src="screenshots/plot1.png" alt="Prediction Page">Outlier Visualization
+    </p>
     <p align="center">
-    <img src="screenshots/plot2.png" alt="Prediction Page">
+    <img src="screenshots/plot2.png" alt="Prediction Page">Categorical Analysis
     </p>
 
 2. **Feature Engineering**:
