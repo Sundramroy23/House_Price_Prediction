@@ -3,7 +3,7 @@
 
 # Real Estate Price Prediction Web Application
 <p align="center">
-  <img src="screenshots/prediction_page.png" alt="Prediction Page">
+  <img src="screenshots/predict2.png" alt="Prediction Page">
 </p>
 
 
@@ -14,7 +14,7 @@ This project is a Flask web application that predicts real estate prices based o
 - [Overview](#overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Setup Instructions](#setup-instructions)
+- [User Authentication](#user-authentication)
 - [Dataset](#dataset)
 - [Machine Learning Model](#machine-learning-model)
 - [Flask Application](#flask-application)
@@ -45,39 +45,14 @@ This web application allows users to predict the price of a property by entering
 - **pandas, numpy**: Data manipulation and analysis.
 - **HTML, CSS, Bootstrap**: Frontend design and styling.
 
-## Setup Instructions
+## User Authetication
+<p align="center">
+  <img src="screenshots/login.png" alt="Prediction Page">
+</p>
+<p align="center">
+  <img src="screenshots/register.png" alt="Prediction Page">
+</p>
 
-To run this project locally:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/real-estate-price-prediction.git
-   cd real-estate-price-prediction
-   ```
-
-2. **Create a virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-
-3. **Install the dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Set up the database**:
-   ```bash
-   flask db init
-   flask db migrate
-   flask db upgrade
-   ```
-
-5. **Run the application**:
-   ```bash
-   flask run
-   ```
-   The application will be available at `http://127.0.0.1:5000/`.
 
 ## Dataset
 
@@ -99,6 +74,9 @@ The machine learning model was trained using the following steps:
    - Handled missing values.
    - Encoded categorical variables.
    - Removed outliers.
+    <p align="center">
+    <img src="screenshots/plot2.png" alt="Prediction Page">
+    </p>
 
 2. **Feature Engineering**:
    - Selected the most relevant features using `SelectKBest`.
@@ -106,6 +84,9 @@ The machine learning model was trained using the following steps:
 3. **Model Selection**:
    - Trained various models including Linear Regression, Polynomial Regression, SVR, Decision Tree, Random Forest, Gradient Boosting, and KNN.
    - Evaluated models using metrics like R2 score, Mean Absolute Error (MAE), and Mean Squared Error (MSE).
+    <p align="center">
+    <img src="screenshots/accuracy.png" alt="Prediction Page">
+    </p>
 
 4. **Model Saving**:
    - The best model (Random Forest Regressor) was saved as a compressed pickle file for deployment.
@@ -160,6 +141,3 @@ To deploy on PythonAnywhere:
 - [Bootstrap](https://getbootstrap.com/)
 - [PythonAnywhere](https://www.pythonanywhere.com/)
 
----
-
-Feel free to modify the contents of this `README.md` to better suit your project.
