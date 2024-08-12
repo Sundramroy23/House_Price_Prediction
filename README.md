@@ -3,7 +3,7 @@
 
 # Real Estate Price Prediction Web Application
 <p align="center">
-  <img src="screenshots/prediction_page.png" alt="Prediction Page">
+  <img src="screenshots/predict2.png" alt="Prediction Page">
 </p>
 
 
@@ -160,6 +160,3 @@ To deploy on PythonAnywhere:
 - [Bootstrap](https://getbootstrap.com/)
 - [PythonAnywhere](https://www.pythonanywhere.com/)
 
----
-
-Feel free to modify the contents of this `README.md` to better suit your project.
