@@ -8,6 +8,7 @@ import pickle
 import json
 import pandas as pd
 import numpy as np
+import os
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -40,16 +41,18 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+model_path = os.path.join(basedir, 'model.pkl')
 # Load machine learning model and location mappings
 try:
-    model = pickle.load(open('model.pkl', 'rb'))  # Load model from pickle file
+    model = pickle.load(open(model_path, 'rb'))  # Load model from pickle file
     print("Model loaded successfully")
 except FileNotFoundError:
     print("Error: model.pkl file not found")
     model = None
-
+json_path = os.path.join(basedir, 'area_key.json')
 try:
-    with open('area_key.json') as f:
+    with open(json_path) as f:
         locations = json.load(f)  # Load location mappings from JSON file
 except FileNotFoundError:
     print("Error: area_key.json file not found")
